@@ -1,0 +1,80 @@
+
+
+let data = new FormData();
+
+
++   
+    function ($) {
+        'use strict';
+
+        var uploadForm = document.getElementById('js-upload-form');
+
+        var startUpload = function (files) {
+            console.log(files)
+        }
+
+        uploadForm.addEventListener('submit', function (e) {
+            var uploadFiles = document.getElementById('js-upload-files').files;
+            e.preventDefault()
+            startUpload(uploadFiles)
+
+
+
+
+
+        })
+
+    }
+
+function loadFile(event) {
+    var image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
+    t = event.target.files[0];
+    
+    data.append('file', event.target.files[0])
+
+    data.append('cookie', document.cookie)
+   
+
+   
+}
+    
+    async function sendFile(event) {
+   	swal("Image en cours de traitement", {
+  	buttons: false,
+  	icon: "info",
+  	closeOnClickOutside: false,
+  		});
+        event.preventDefault();
+         await fetch('http://15.237.169.44:8000', {
+            method: 'POST',
+            body: data,
+            headers: {'Allow-Control-Allow-Origin': '*'
+            }
+            
+        }).then(response => {
+            console.log("myData1: ", response);
+            var temp = response.json();
+            console.log("temp ", temp);
+            return temp;
+        }).then(text => {
+            tata=String(text);
+            company = tata.split("'")[7]
+	    date = tata.split("'")[11]
+	    total = tata.split("'")[14]
+	    console.log(tata)
+            swal.close()
+            document.getElementById('response').innerHTML = "Company : "+company+"\nDate : "+date+"\nTotal : "+total;
+            
+            swal("Succès","Company : "+company+"\nDate : "+date+"\nTotal : "+total,"success");
+        });
+    
+        
+}
+
+function setCookie(cName, cValue, expDays) {
+    let date = new Date();
+    date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+}

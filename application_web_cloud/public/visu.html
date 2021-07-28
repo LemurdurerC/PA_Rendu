@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill extractor</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-96x96.png">
+    <meta name="apple-mobile-web-app-status-bar" content="white">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="white">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+
+<div class="dropdown">
+
+ <button  id="myButton" type="button" data-toggle="dropdown" style="position: relative; margin-top: 90px;">
+    &#9776;
+  </button>
+  
+  <div class="dropdown-menu">
+    
+    <a class="dropdown-item" href="index.html">Retour</a>
+     <a class="dropdown-item" href="auth.html" onclick="resetcookie()">Se déconnecter</a>
+  </div>
+</div>
+
+   
+</head>
+<body>
+  <p id="cook"></p>
+  <img src="logo_small-2.ico" style="position: relative;
+bottom: 0px; right: 0px;">
+    <br>
+    
+    
+    <div class="image-frame" id="image-frame">
+      <label style="position: relative;left: 135px; font-weight: bold;" ><center>Visualisation</center></label>
+      <iframe src='about:blank' id="iframe_vizu" height="600" width="600"></iframe>
+    </div>
+    <br>
+    
+  <br>
+  <br>
+  <br>
+  <br>
+<script>
+  function someFunc() {
+    myFunction();
+    sendFile(event);
+}
+function myFunction() {
+  alert("Votre image a bien été envoyée");
+}
+</script>
+<script>
+  var c = "Bienvenue " + document.cookie.split("=")[1];
+document.getElementById('cook').innerHTML=c;
+document.getElementById("iframe_vizu").src = "http://15.237.169.44:5601/app/dashboards#/view/84542fa0-d9e5-11eb-8762-0316d9b3c041?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(attributes:(references:!((id:b93c70e0-d1f9-11eb-834c-d341e758baeb,name:indexpattern-datasource-current-indexpattern,type:index-pattern),(id:b93c70e0-d1f9-11eb-834c-d341e758baeb,name:indexpattern-datasource-layer-3caf1741-2e17-411e-a9d3-9250b484ab39,type:index-pattern)),state:(datasourceStates:(indexpattern:(layers:('3caf1741-2e17-411e-a9d3-9250b484ab39':(columnOrder:!(a5206b35-2d2e-41b6-89c1-95779340f594,'48d732b3-da83-436d-9b40-4faa564048fa','07a74bb5-067f-4f67-9acf-5aa669892b8f'),columns:('07a74bb5-067f-4f67-9acf-5aa669892b8f':(dataType:number,isBucketed:!f,label:'Sum%20of%20total',operationType:sum,scale:ratio,sourceField:total),'48d732b3-da83-436d-9b40-4faa564048fa':(dataType:string,isBucketed:!t,label:'Top%20values%20of%20company.keyword',operationType:terms,params:(missingBucket:!f,orderBy:(columnId:'07a74bb5-067f-4f67-9acf-5aa669892b8f',type:column),orderDirection:desc,otherBucket:!t,size:3),scale:ordinal,sourceField:company.keyword),a5206b35-2d2e-41b6-89c1-95779340f594:(dataType:string,isBucketed:!t,label:'Top%20values%20of%20date.keyword',operationType:terms,params:(missingBucket:!f,orderBy:(columnId:'07a74bb5-067f-4f67-9acf-5aa669892b8f',type:column),orderDirection:desc,otherBucket:!t,size:5),scale:ordinal,sourceField:date.keyword)),incompleteColumns:())))),filters:!(),query:(language:kuery,query:''),visualization:(layers:!((accessors:!('07a74bb5-067f-4f67-9acf-5aa669892b8f'),layerId:'3caf1741-2e17-411e-a9d3-9250b484ab39',position:top,seriesType:bar_stacked,showGridlines:!f,splitAccessor:'48d732b3-da83-436d-9b40-4faa564048fa',xAccessor:a5206b35-2d2e-41b6-89c1-95779340f594)),legend:(isVisible:!t,position:right),preferredSeriesType:bar_stacked,title:'Empty%20XY%20chart',valueLabels:hide)),title:'',type:lens,visualizationType:lnsXY),enhancements:()),gridData:(h:15,i:'94b284f2-67be-4ca5-8fc4-470bfdce83a0',w:24,x:0,y:0),panelIndex:'94b284f2-67be-4ca5-8fc4-470bfdce83a0',type:lens,version:'7.13.2')),query:(language:kuery,query:'id.keyword%20:%20%22"+document.cookie.split("=")[1]+"%22%20'),tags:!(),timeRestore:!f,title:'1',viewMode:view)&hide-filter-bar=true" 
+
+
+</script>
+<script>
+  window.addEventListener('load', function() {
+    if(document.cookie == ""){
+      document.location.href="http://15.237.169.44:3000/auth.html";
+      
+  }
+      }, false);
+</script>
+<script>
+  function resetcookie(){
+    document.cookie = "idUser=; expires=Mon, 02 Oct 2000 01:00:00 GMT; path=/";
+    swal("Vous êtes déconnecté");
+  }
+  </script>
+
+<script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/app2.js"></script>
+</body>
+</html>
+
